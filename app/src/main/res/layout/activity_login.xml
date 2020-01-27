@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.login.LoginActivity">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_logo"
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="@dimen/logo_height"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/insta" />
+
+
+    <com.navin.digishop.customView.PersianTextView
+        android:id="@+id/lbl_signup_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="@string/signup_text"
+        android:textSize="@dimen/font_24" />
+
+
+    <RelativeLayout
+        android:id="@+id/rel_facebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_signup_text"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/facebook_background"
+        android:padding="@dimen/margin_8">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_8"
+            android:layout_toLeftOf="@id/txt_login_facebook"
+            app:srcCompat="@drawable/ic_iconfinder_square_facebook_317727" />
+
+
+        <com.navin.digishop.customView.PersianTextView
+            android:id="@+id/txt_login_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:text="@string/login_facebook"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lin_seperator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_facebook"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="2"
+            android:background="@color/gray" />
+
+        <com.navin.digishop.customView.PersianTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="OR" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="2"
+            android:background="@color/gray" />
+
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_below="@id/lin_seperator"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:background="@drawable/edittext_custom"
+        android:hint="@string/email_or_phone_number"
+        android:paddingLeft="@dimen/margin_8" />
+
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_text_height"
+        android:layout_below="@id/edt_username"
+        android:layout_marginLeft="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginRight="@dimen/margin_16"
+        android:background="@drawable/edittext_custom"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingLeft="@dimen/margin_8" />
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rel_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_password"
+        android:layout_margin="@dimen/margin_16"
+        android:background="@drawable/facebook_background"
+        android:padding="@dimen/margin_8">
+
+
+        <com.navin.digishop.customView.PersianTextView
+            android:id="@+id/txt_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_centerInParent="true"
+            android:text="@string/login"
+            android:textColor="@color/white" />
+
+
+    </RelativeLayout>
+
+
+    <com.navin.digishop.customView.PersianTextView
+        android:id="@+id/txt_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/forgot_password"
+        android:textColor="#2196F3"
+        android:layout_below="@id/rel_login"
+        />
+
+
+
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:background="@drawable/edittext_custom"
+        android:layout_height="@dimen/edit_text_height">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:id="@+id/lbl_account"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Don't have an account ? "
+            />
+
+
+
+        <com.navin.digishop.customView.PersianTextView
+            android:layout_width="wrap_content"
+            android:id="@+id/lbl_signup"
+            android:layout_toRightOf="@id/lbl_account"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:layout_centerVertical="true"
+            />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>
