@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "991559733435",
+    "firebase_url": "https://digishop-fc1de.firebaseio.com",
+    "project_id": "digishop-fc1de",
+    "storage_bucket": "digishop-fc1de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991559733435:android:a885ab88ef6413e1c7599e",
+        "android_client_info": {
+          "package_name": "com.navin.digishop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991559733435-eupsuhrtfr0qmrl15gm07q0kog8apbcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUg4L0MtsXTyfzplWw0xFssgpvkOyHUF8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991559733435-eupsuhrtfr0qmrl15gm07q0kog8apbcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

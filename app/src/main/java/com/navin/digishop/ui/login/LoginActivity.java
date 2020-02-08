@@ -1,5 +1,6 @@
 package com.navin.digishop.ui.login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
@@ -11,7 +12,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.navin.digishop.MainActivity;
 import com.navin.digishop.R;
 import com.navin.digishop.models.IResponseMessage;
@@ -40,6 +48,12 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     RelativeLayout rel_main;
 
 
+    @BindView(R.id.adView) AdView adView;
+
+    private FirebaseAuth mAuth;
+
+
+
 
 
     LoginPresenter presenter;
@@ -51,7 +65,59 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+
+
+
         presenter = new LoginPresenter(this,new LoginInteractor());
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+
+
+        adView.setAdListener(new AdListener(){
+
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.e("","");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.e("","");
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+                Log.e("","");
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                Log.e("","");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.e("","");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+                Log.e("","");
+            }
+        });
+
+
 
     }
 
@@ -61,7 +127,22 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
         String username = edt_username.getText().toString();
         String password = edt_password.getText().toString();
-        presenter.doLogin(username,password);
+     //   presenter.doLogin(username,password);
+
+
+        mAuth.createUserWithEmailAndPassword(username , password )
+                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.e("","");
+                    }
+                });
+
+
+
+
+
+
 
     }
 
