@@ -7,7 +7,7 @@ import androidx.multidex.MultiDexApplication;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
-import com.pushpole.sdk.PushPole;
+//import com.pushpole.sdk.PushPole;
 
 public class AppConfig extends MultiDexApplication {
 
@@ -16,7 +16,7 @@ public class AppConfig extends MultiDexApplication {
         super.onCreate();
 
 
-        PushPole.initialize(this,true);
+        //PushPole.initialize(this,true);
 
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {

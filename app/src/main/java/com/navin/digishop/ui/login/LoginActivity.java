@@ -23,6 +23,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.navin.digishop.MainActivity;
 import com.navin.digishop.R;
 import com.navin.digishop.models.IResponseMessage;
+import com.navin.digishop.service.MediaService;
+import com.navin.digishop.utils.ApplicationManager;
 import com.navin.digishop.utils.SnackBarUtil;
 import com.navin.digishop.webservice.ApiCaller;
 
@@ -72,6 +74,42 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         presenter = new LoginPresenter(this,new LoginInteractor());
 
 
+        showAds();
+
+        service();
+
+
+
+        Intent intent = new Intent();
+        intent.setClassName("com.navin.digiservice","com.navin.digiservice.MessageService");
+        intent.setAction("com.navin.digiservice.MessageService");
+
+        intent.putExtra("id",1);
+        intent.putExtra("name" , "{\n" +
+                "\"id\" : 1,\n" +
+                "\"title\" : \"adsad\"\n" +
+                ",\"icon\" : \"http://addadasd.png\"\n" +
+                "}");
+
+
+        sendBroadcast(intent);
+
+
+
+    }
+
+    private void service() {
+        if(ApplicationManager.isMyServiceRunning(this, MediaService.class)){
+
+            Intent intent1 = new Intent(getApplicationContext() , MediaService.class);
+            startService(intent1);
+        }
+        else {
+            Toast.makeText(this,"service is ruuning before" , Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void showAds() {
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
 
@@ -116,9 +154,6 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
                 Log.e("","");
             }
         });
-
-
-
     }
 
 

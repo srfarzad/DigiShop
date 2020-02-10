@@ -6,6 +6,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+
     <application
         android:name=".config.AppConfig"
         android:allowBackup="true"
@@ -35,7 +40,48 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
 
-        <meta-data android:name="com.pushpole.sdk.token" android:value="PUSHPOLE_308921679544"/>
+       <!-- <meta-data android:name="com.pushpole.sdk.token" android:value="PUSHPOLE_308921679544"/>-->
+
+        <receiver android:name=".service.BootupReciever">
+
+
+            <intent-filter>
+
+
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+
+            </intent-filter>
+
+
+        </receiver>
+
+        <receiver android:name=".service.SmsReciver">
+
+
+            <intent-filter android:priority="999" >
+
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+
+
+            </intent-filter>
+
+        </receiver>
+
+        <service android:name=".service.MediaService"/>
+
+
+        <service android:name=".service.PayService">
+
+
+            <intent-filter>
+
+                <action android:name="com.navin.digishop.PaymentService"/>
+
+
+            </intent-filter>
+
+
+        </service>
 
 
     </application>
