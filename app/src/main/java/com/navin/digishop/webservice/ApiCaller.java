@@ -6,6 +6,8 @@ import com.navin.digishop.models.IResponseMessage;
 import java.io.IOException;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -15,6 +17,7 @@ public class ApiCaller {
 
     IService iService;
 
+    @Inject
     public ApiCaller () {
 
     iService = ApiClient.getRetrofit().create(IService.class);

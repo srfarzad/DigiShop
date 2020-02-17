@@ -22,11 +22,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.navin.digishop.MainActivity;
 import com.navin.digishop.R;
+import com.navin.digishop.config.AppConfig;
+import com.navin.digishop.di.DaggerUserComponent;
+import com.navin.digishop.di.UserComponent;
+import com.navin.digishop.di.UserModule;
 import com.navin.digishop.models.IResponseMessage;
 import com.navin.digishop.service.MediaService;
 import com.navin.digishop.utils.ApplicationManager;
 import com.navin.digishop.utils.SnackBarUtil;
 import com.navin.digishop.webservice.ApiCaller;
+import com.navin.digishop.webservice.ApiComponent;
+import com.navin.digishop.webservice.DaggerApiComponent;
+import com.navin.digishop.webservice.ServiceModule;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -93,6 +100,24 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
 
 
         sendBroadcast(intent);
+
+
+        UserComponent component = DaggerUserComponent.builder().userModule(new UserModule()).build();
+
+
+        component.provideUser().addContact("hi@gmail.com");
+        Log.e("Component", component.provideUser().getContact());
+
+
+        ApiComponent apiComponent = DaggerApiComponent.builder().serviceModule(
+                new ServiceModule()).build();
+
+        //apiComponent.getWebserviceCaller().
+
+        AppConfig appConfig = AppConfig.getInstance();
+
+        appConfig.getContext();
+
 
 
 

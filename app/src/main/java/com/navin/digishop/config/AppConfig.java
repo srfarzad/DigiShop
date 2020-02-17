@@ -1,6 +1,7 @@
 package com.navin.digishop.config;
 
 import android.app.Application;
+import android.content.Context;
 
 import androidx.multidex.MultiDexApplication;
 
@@ -11,10 +12,15 @@ import com.google.android.gms.ads.initialization.OnInitializationCompleteListene
 
 public class AppConfig extends MultiDexApplication {
 
+    Context context;
+    private static AppConfig instance = null;
+
     @Override
     public void onCreate() {
         super.onCreate();
 
+        context = getApplicationContext();
+        instance = this;
 
         //PushPole.initialize(this,true);
 
@@ -27,4 +33,14 @@ public class AppConfig extends MultiDexApplication {
         });
 
     }
+
+
+    public Context getContext() {
+        return context;
+    }
+
+    public static AppConfig getInstance() {
+        return instance;
+    }
+
 }
