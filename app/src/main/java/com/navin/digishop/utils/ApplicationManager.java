@@ -166,7 +166,7 @@ public class ApplicationManager {
             return deviceName;
         }*/
 
-    public static String getDeviceName() {
+    public  String getDeviceName() {
         String manufacturer = Build.MANUFACTURER;
         //String model = Build.BRAND;
 

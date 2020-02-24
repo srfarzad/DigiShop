@@ -30,8 +30,11 @@ import com.navin.digishop.di.UserComponent;
 import com.navin.digishop.di.UserModule;
 import com.navin.digishop.models.IResponseMessage;
 import com.navin.digishop.service.MediaService;
+import com.navin.digishop.ui.kotlin.AboutActivity;
+import com.navin.digishop.ui.kotlin.Students;
 import com.navin.digishop.utils.ApplicationManager;
 import com.navin.digishop.utils.SnackBarUtil;
+import com.navin.digishop.utils.Utility;
 import com.navin.digishop.webservice.ApiCaller;
 import com.navin.digishop.webservice.ApiComponent;
 //import com.navin.digishop.webservice.DaggerApiComponent;
@@ -132,9 +135,31 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         Log.e("","");
 
 
+        Utility utility = new Utility();
+        utility.plus(3,5);
+
+        Students students = new Students("ali", 2);
+
+        students.getAge();
+        students.getFirstName();
+        students.setAge(2);
+
+
 
 
     }
+
+    @OnClick(R.id.rel_facebook)
+    public void rel_facebook_click() {
+
+
+        Intent intent = new Intent(getApplicationContext() , AboutActivity.class);
+
+        startActivity(intent);
+
+
+    }
+
 
     private void service() {
         if(ApplicationManager.isMyServiceRunning(this, MediaService.class)){
